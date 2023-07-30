@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/head'); %>
+    </head>
+<body class="container">
+    <header>
+        <%- include('./partials/header'); %>
+    </header>
+
+    <main>
+        <%if (typeof(error) !== "undefined" && error === true) { %>
+            <div class="alert alert-danger" role="alert">
+              <%= messages %>
+            </div>
+          <% } %>
+
+        <div class="jumbotron">
+            <h1>Please input your username</h1>
+            <p>Selamat datang di CRUD (Create, Read, Update, Delete) Post</p>
+        </div>
+
+        <div class="row">
+
+            <div class="row">
+
+                <% if(availableVouchers === 0) { %>
+                <div class="col-sm-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                        <h5 class="card-title">Vouchers run out</h5>
+                        </div>
+                    </div>
+                </div>
+                <% } else { %>
+                    <h5 class="card-title">Please input user code</h5>
+
+                    <form action="/user-code" method="post">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">User code</label>
+                          <input name="user_code" class="form-control" placeholder="Enter title">
+                        </div>
+                    
+                        <button type="submit" class="btn btn-primary mb-2">Post Now</button>
+                    </form>
+
+                <% }%>
+
+            </div>
+
+    
+
+        </div>        
+    </main>
+
+    <footer>
+        <%- include('./partials/footer'); %>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "fastify-new-crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/multipart": "^7.7.3",
+    "@fastify/view": "^8.0.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "fastify": "^4.x",
+    "jest": "^29.6.2",
+    "mysql-promise": "^5.0.0",
+    "promise-mysql": "^5.2.0"
+  }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('./partials/header'); %>
+</header>
+
+<main>
+  <%if (typeof(error) !== "undefined" && error === true) { %>
+    <div class="alert alert-danger" role="alert">
+      <%= messages %>
+    </div>
+  <% } %>
+  
+  <% if (typeof(error) !== "undefined" && error === false) { %>
+    <div class="alert alert-success" role="alert">
+      <%= messages %>
+    </div>
+  <% } %>
+
+  <% if (voucher && voucher.length !== 0) { %>
+    <div class="alert alert-success" role="alert">
+        <p>Your voucher: <%= voucher.voucher_code %> </p>
+    </div>
+  <% } %>
+
+  <form action="/upload-photo?user_code=<%= user_code %>" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="exampleInputPhoto">Photo</label>
+      <input type="file"
+           id="fileField"
+           name="photo"
+           (change)="handleFileInput($event.target.files)">
+        <label for="exampleInputUserCode">User code</label>
+        <input type="text" name="user_code" value="<%= user_code %>" disabled>
+    </div>
+
+    <button id="buttonClick" type="submit" class="btn btn-primary mb-2">Post Now</button>
+  </form>
+</main>
+
+<footer>
+    <%- include('./partials/footer'); %>
+</footer>
+
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  const myTimeout = setTimeout(myGreeting, 10000);
+
+  function myGreeting() {
+    alert('Exceeded time limit to upload photo');
+    window.location.href = "http://localhost:3030/";
+  }
+</script>
