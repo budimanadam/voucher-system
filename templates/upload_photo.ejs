@@ -51,10 +51,19 @@
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
-  const myTimeout = setTimeout(myGreeting, 10000);
+  const myTimeout = setTimeout(myGreeting, 100000);
 
   function myGreeting() {
     alert('Exceeded time limit to upload photo');
     window.location.href = "http://localhost:3030/";
   }
+
+  $(function() {
+   $('form').submit(function() {
+      if(!$("form input[type=file]").val()) {
+         alert('You must select a file!');
+         return false;
+      }
+   });
+});
 </script>
