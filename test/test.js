@@ -1,4 +1,4 @@
-const config = require('../config');
+const config = require('../src/config');
 const db = require('mysql-promise')();
 
 db.configure({
@@ -28,7 +28,7 @@ it ('create vouchers', async () => {
 // create random Transactions or Purchases
 it ('create transactions or puchases', async () => {
     for (let index = 0; index < 5; index++) {
-        const user_id = 1;
+        const user_id = 4;
         await db.query(`INSERT INTO purchase (user_id, price, status) values (?, ?, ?)`, [user_id, 10000, 'COMPLETED']);
     }
 });
