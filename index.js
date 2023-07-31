@@ -1,10 +1,9 @@
 const config = require('./config');
-
-
 const fastify = require('fastify')({ logger: { level: config.LOG_LEVEL } });
 const fs = require('fs');
 const util = require('util');
 const { pipeline } = require('stream');
+
 
 fastify.register(require('@fastify/formbody'))
 fastify.register(require('@fastify/multipart'))
@@ -13,10 +12,10 @@ const pump = util.promisify(pipeline)
 
 
 db.configure({
-	host: "localhost",
-    user: "root",
-    password: "",
-    database: "simple_crud"
+  host: config.HOST,
+  user: config.USER,
+  password: config.PASSWORD,
+  database: config.DATABASE
 });
 
 fastify.get('/', async (request, reply) => {

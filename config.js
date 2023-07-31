@@ -1,40 +1,11 @@
 require('dotenv').config();
 
 const config = {
-  NODE_ENV: process.env.NODE_ENV,
-  LOG_LEVEL: process.env.LOG_LEVEL || 'info',
-  PORT: process.env.PORT || 3030,
-  RMQ_HOST: process.env.RMQ_HOST,
-  RMQ_PORT: process.env.RMQ_PORT === undefined ? 30001 : parseInt(process.env.RMQ_PORT, 10),
-  RMQ_USER: process.env.RMQ_USER,
-  RMQ_PASSWORD: process.env.RMQ_PASSWORD,
-  RMQ_VHOST: process.env.RMQ_VHOST || 'devops-develop',
-  JD_WMS_APP_KEY: process.env.JD_WMS_APP_KEY || 101845,
-  JD_WMS_APP_SECRET: process.env.JD_WMS_APP_SECRET || 'PtB07oIoRJhHZZRej1wKWspYsgyYtETs',
-  JD_WMS_APP_AUTH: process.env.JD_WMS_APP_AUTH || 'GulQ2yfeFEO9558I0O5K',
-  JD_WMS_PUSH_ORDER_QUEUE: process.env.JD_WMS_PUSH_ORDER_QUEUE || 'jd_wms_order_notify',
-  JD_WMS_ORDER_DEAD_LETTERS: process.env.JD_WMS_ORDER_DEAD_LETTERS || 'jd_wms_order_notify-dead-letters',
-  JD_WMS_PUSH_ORDER_EXCHANGE: process.env.JD_WMS_PUSH_ORDER_EXCHANGE || 'jd_wms_order_notify-exchange',
-  JD_WMS_PUSH_ORDER_DL_EXCHANGE: process.env.JD_WMS_PUSH_ORDER_DL_EXCHANGE || 'jd_wms_order_notify-dead-exchange',
-  JD_WMS_PUSH_ORDER_QUEUE_TTL: process.env.JD_WMS_PUSH_ORDER_QUEUE_TTL || 150000,
-  JD_WMS_PUSH_ORDER_DLQ_TTL: process.env.JD_WMS_PUSH_ORDER_DLQ_TTL || 60000,
-  JD_WMS_PUSH_ORDER_DURABLE: process.env.JD_WMS_PUSH_ORDER_DURABLE || false,
-  ENABLE_LOG: process.env.ENABLE_LOG === undefined ? false : JSON.parse(process.env.ENABLE_LOG),
-  ES_LOG_ID: process.env.ES_LOG_ID,
-  ES_API_KEY: process.env.ES_API_KEY,
-  AzureWebJobsTenantDb: process.env.AzureWebJobsTenantDb || 'jb_tenant',
-  AzureWebJobsTenantHost: process.env.AzureWebJobsTenantHost || 'localhost',
-  AzureWebJobsTenantUser: process.env.AzureWebJobsTenantUser || 'tenant_user',
-  AzureWebJobsTenantPassword: process.env.AzureWebJobsTenantPassword || 'p@55w0rd',
-  AzureWebJobsSystemDb: process.env.AzureWebJobsSystemDb || 'jb_system',
-  AzureWebJobsSystemHost: process.env.AzureWebJobsSystemHost || 'localhost',
-  AzureWebJobsSystemUser: process.env.AzureWebJobsSystemUser || 'sys_user',
-  AzureWebJobsSystemPassword: process.env.AzureWebJobsSystemPassword || 'p@55w0rd',
-  POOL_IDLE_TIMEOUT: process.env.POOL_IDLE_TIMEOUT || 60000,
-  TENANT_POOL_SIZE: process.env.TENANT_POOL_SIZE || 50,
-  SYSTEM_POOL_SIZE: process.env.SYSTEM_POOL_SIZE || 20,
-  DB_PORT: process.env.DB_PORT || 5432,
+  HOST: process.env.HOST,
+  USER: process.env.USER,
+  PASSWORD: process.env.PASSWORD,
+  DATABASE: process.env.DATABASE,
+  PORT: process.env.PORT
 };
-config.RMQ_CONNECTION = `amqp://${config.RMQ_USER}:${config.RMQ_PASSWORD}@${config.RMQ_HOST}:${config.RMQ_PORT}/${config.RMQ_VHOST}`;
 
 module.exports = config;

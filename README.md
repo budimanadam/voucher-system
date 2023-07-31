@@ -1,6 +1,11 @@
 # voucher-system
 A system that will generate voucher for user.
 
+Config preparation:
+```javascript
+change file '.envsampe' to '.env'
+```
+
 Database preparation:
 ```javascript
 go to 'migarations' folder

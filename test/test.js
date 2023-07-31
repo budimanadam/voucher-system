@@ -1,10 +1,11 @@
+const config = require('../config');
 const db = require('mysql-promise')();
 
 db.configure({
-	host: "localhost",
-    user: "root",
-    password: "",
-    database: "simple_crud"
+    host: config.HOST,
+    user: config.USER,
+    password: config.PASSWORD,
+    database: config.DATABASE
 });
 
 // create random Users
