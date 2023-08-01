@@ -11,17 +11,6 @@ module.exports = async function(fastify, opts) {
             description: `Return wether success or failed after uploading photo and check the voucher availibility`,
             tags: ['Photo'],
             consumes: ['multipart/form-data'],
-            body: {
-                type: 'object',
-                description: 'Upload',
-                properties: {
-                    photo: {
-                        type: "string",
-                        format: "binary",
-                        description: 'The file to upload.'
-                    }
-                }
-            },
             querystring: {
                 user_code: {
                     type: 'string',
