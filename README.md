@@ -28,3 +28,8 @@ Data preparation:
 ```javascript
 run 'npm test'
 ```
+
+How to run the API Doc:
+```javascript
+go to 'http://127.0.0.1:3030/docs'
+```
