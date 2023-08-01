@@ -22,7 +22,7 @@ const uploadPhoto = async (req, rep) => {
     const parts = req.parts();
     for await (const part of parts) {
         if (part.file) {
-        await pump(part.file, fs.createWriteStream(`./src/uploads/${part.filename}`));
+        await pump(part.file, fs.createWriteStream(`./uploads/${part.filename}`));
         }
     }
     const voucher = await db.query(`select * from voucher where user_id is null  order by voucher_id DESC limit 1`).spread(function (res) {return res[0]});
