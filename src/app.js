@@ -38,6 +38,11 @@ db.configure({
     options: Object.assign({}, opts)
   })
 
+  fastify.addHook('onRequest', (request, reply, done) => {
+    request.db = db;
+    done();
+  })
+
   // This loads and sets fastify/cors
   fastify.register(require('@fastify/cors'), {
     origin: ['http://localhost:8080', 'http://127.0.0.1:8080', 'http://localhost:3000'],

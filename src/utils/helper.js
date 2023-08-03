@@ -8,8 +8,8 @@ db.configure({
     database: config.DATABASE
 });
 
-async function checkAvailableVouchers() {
-    const availableVouchers = await db.query(`select * from voucher where user_id is NULL`).spread(function (res) {
+async function checkAvailableVouchers(req) {
+    const availableVouchers = await req.db.query(`select * from voucher where user_id is NULL`).spread(function (res) {
       return res;
     });
     return availableVouchers;

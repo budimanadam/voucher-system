@@ -27,8 +27,8 @@ it ('create vouchers', async () => {
 
 // create random Transactions or Purchases
 it ('create transactions or puchases', async () => {
-    for (let index = 0; index < 5; index++) {
-        const user_id = 9;
+    for (let index = 0; index < 10; index++) {
+        const user_id = 2;
         await db.query(`INSERT INTO purchase (user_id, price, status) values (?, ?, ?)`, [user_id, 10000, 'COMPLETED']);
     }
 });
