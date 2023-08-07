@@ -2,20 +2,12 @@
 
 const path = require('path')
 const AutoLoad = require('@fastify/autoload')
-const db = require('mysql-promise')();
-const config = require('./config');
+const connect = require('./utils/mysql-helper');
 
 // Pass --options via CLI arguments in command to enable these options.
 module.exports.options = {}
 
 module.exports = async function (fastify, opts) {
-
-db.configure({
-  host: config.HOST,
-  user: config.USER,
-  password: config.PASSWORD,
-  database: config.DATABASE
-});
 
   // This loads and sets @fastify/swagger
   fastify.register(require('@fastify/swagger'), {})
@@ -38,9 +30,8 @@ db.configure({
     options: Object.assign({}, opts)
   })
 
-  fastify.addHook('onRequest', (request, reply, done) => {
-    request.db = db;
-    done();
+  fastify.addHook('onRequest', async (request, reply) => {
+    request.db = await connect();
   })
 
   // This loads and sets fastify/cors

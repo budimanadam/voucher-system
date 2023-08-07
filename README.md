@@ -52,5 +52,6 @@ List of Depedencies:
     "fastify-swagger",
     "jest",
     "mysql-promise",
-    "promise-mysql"
+    "promise-mysql",
+    "mysql2"
 ```

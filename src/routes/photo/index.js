@@ -7,7 +7,7 @@ module.exports = async function(fastify, opts) {
         url: '/upload-photo',
         handler: uploadPhoto,
         schema: {
-            summary: 'Return success or faileda after uploading photo',
+            summary: 'Return success or failed after uploading photo',
             description: `Return wether success or failed after uploading photo and check the voucher availibility`,
             tags: ['Photo'],
             consumes: ['multipart/form-data'],
